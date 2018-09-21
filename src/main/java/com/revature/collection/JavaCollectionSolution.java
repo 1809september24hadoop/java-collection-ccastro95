@@ -92,7 +92,7 @@ public class JavaCollectionSolution implements JavaCollection {
 					+ " Please try again later.");
 		}
 		
-		int i, j, temp = 0;
+		int i, j, temporaryLocation = 0;
 		int checker = n;
 		
 		LinkedList<Integer> l = new LinkedList<>();
@@ -102,20 +102,20 @@ public class JavaCollectionSolution implements JavaCollection {
 			
 			/*
 			 * This line will take the last digit of the input number after every "/10" has occurred,
-			 * and after n = 0, temp will be either the same number as checker (a palindrome),
+			 * and after n = 0, temporaryLocation will be either the same number as checker (a palindrome),
 			 * or the reverse of checker (not a palindrome).
 			 */
-			temp = temp * 10 + i;
+			temporaryLocation = temporaryLocation * 10 + i;
 			n = n / 10;
 		}
-		if(temp != checker) {
+		if(temporaryLocation != checker) {
 			LOGGER.info("The number inputted: " + checker);
-			LOGGER.info("The number returned: " + temp);
+			LOGGER.info("The number returned: " + temporaryLocation);
 			LOGGER.info("The input number is not a palindrome");
 			return false;
 		}
 		LOGGER.info("The number inputted: " + checker);
-		LOGGER.info("The number returned: " + temp);
+		LOGGER.info("The number returned: " + temporaryLocation);
 		LOGGER.info("The input number is a palindrome.");
 		return true;
 	}
